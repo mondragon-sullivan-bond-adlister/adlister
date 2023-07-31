@@ -15,4 +15,15 @@ public class AdsIndexServlet extends HttpServlet {
         request.setAttribute("ads", DaoFactory.getAdsDao().all());
         request.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(request, response);
     }
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String search = request.getParameter("search");
+        String all = request.getParameter("all");
+        try {
+            request.setAttribute("ads", DaoFactory.getAdsDao().search(search));
+            request.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(request, response);
+        } catch (Exception e){
+            request.setAttribute("ads", DaoFactory.getAdsDao().all());
+            request.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(request, response);
+        }
+    }
 }
