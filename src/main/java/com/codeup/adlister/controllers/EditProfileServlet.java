@@ -47,27 +47,18 @@ public class EditProfileServlet extends HttpServlet {
         long userId = currentUser.getId();
         System.out.println("userId = " + userId);
 
-//        User updateUser = new User();
-        
-
-//        request.setAttribute("userId", currentUser.getId());
-//        request.getRequestDispatcher("/WEB-INF/edit-profile.jsp").forward(request, response);
-//        currentUser.setId(userId);
-//        currentUser.setUsername(newUsername);
-//        currentUser.setEmail(newEmail);
-//        currentUser.setPassword(newPassword);
         System.out.println(currentUser.toString());
 
-
-
-
-// hash the password
         try {
             String hash = Password.hash(newPassword);
 //            currentUser.setPassword(hash);
             DaoFactory.getUsersDao().updateUser(newUsername, newEmail, hash, userId);
-//            response.sendRedirect("/profile");
-            request.getRequestDispatcher("/WEB-INF/edit-profile.jsp").forward(request, response);
+
+            HttpSession session = request.getSession();
+            session.invalidate();
+
+            response.sendRedirect("/login");
+//            request.getRequestDispatcher("/WEB-INF/edit-profile.jsp").forward(request, response);
 
         } catch (RuntimeException e){
             if(e.getMessage().contains("Error creating new user: Username is already taken.")) {

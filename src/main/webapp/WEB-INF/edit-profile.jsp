@@ -39,6 +39,10 @@
       </form>
     </div>
 
+<div>
+    <h3>You will be redirected to login page after update</h3>
+</div>
+
 
 </body>
 </html>

@@ -32,12 +32,9 @@ public class LoginServlet extends HttpServlet {
             return;
         }
 
-        // Changed this line as seen below. Still not hashing PW in DB
-//        boolean validAttempt = Password.check(password, user.getPassword());
-        boolean validAttempt = password.equals(user.getPassword());
+        boolean passwordsMatch = BCrypt.checkpw(password, user.getPassword());
 
-
-        if (validAttempt) {
+        if (passwordsMatch) {
             request.getSession().setAttribute("user", user);
             String redirectUrl = (String) request.getSession().getAttribute("redirectAfterLogin");
             if (redirectUrl != null) {
