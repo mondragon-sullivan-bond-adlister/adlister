@@ -4,6 +4,7 @@ import com.codeup.adlister.util.Config;
 
 public class DaoFactory {
     private static Ads adsDao;
+
     private static Users usersDao;
     private static Config config = new Config();
 
