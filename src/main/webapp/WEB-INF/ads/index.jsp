@@ -22,9 +22,10 @@
         <div class="col-md-6">
             <h2>${ad.title}</h2>
             <p>${ad.description}</p>
-            <form action="/ad" method="post">
-                <button name="id" value="${ad.id}" >more info</button>
-            </form>
+<%--            <form action="/ad" method="post">--%>
+<%--                <button type="submit" name="ad1" value="${ad.id}" >more info</button>--%>
+<%--            </form>--%>
+            <a href="/ad?${ad.id}">Check this out</a>
         </div>
     </c:forEach>
 </div>
