@@ -20,3 +20,8 @@ CREATE TABLE ads (
     FOREIGN KEY (user_id) REFERENCES users(id)
         ON DELETE CASCADE
 );
+
+USE adlister_db;
+INSERT INTO ads (id, user_id, title, description)
+VALUES (1, 1, 'Washer', 'Big Washer');
+
