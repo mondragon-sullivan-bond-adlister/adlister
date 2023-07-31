@@ -70,4 +70,28 @@ public class MySQLUsersDao implements Users {
         );
     }
 
-}
+
+    @Override
+    // method to update profile
+    public void updateUser(String username, String email, String password, long id) {
+        String query = "UPDATE users SET username = ?, email = ?, password = ? WHERE (id = ?)";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, username);
+            stmt.setString(2, email);
+            stmt.setString(3, password);
+            stmt.setLong(4, id);
+//            System.out.println(user.getId());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            if (e.getErrorCode() == 1062) {
+                System.err.println("Username is already taken. Please try again.");
+                throw new RuntimeException("Error creating new user: Username is already taken.");
+
+            } else {
+                throw new RuntimeException("Error creating new user", e);
+            }
+
+        }
+        }
+    }

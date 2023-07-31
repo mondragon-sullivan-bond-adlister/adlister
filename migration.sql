@@ -6,6 +6,7 @@ DROP TABLE IF EXISTS ads;
 DROP TABLE IF EXISTS users;
 
 
+DROP USER 'john'@'localhost';
 
 
 CREATE TABLE users (

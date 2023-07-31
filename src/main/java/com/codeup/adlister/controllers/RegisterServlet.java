@@ -36,15 +36,8 @@ public class RegisterServlet extends HttpServlet {
             return;
         }
 
-//        if (errorMessage.equals("Error creating new user: Username is already taken.")) {
-//            String errorMessage1 = "Sorry, this username is already taken.";
-//            response.sendRedirect("/register");
-//        }
-
         // create and save a new user
         User user = new User(username, email, password);
-
-
 
         // hash the password
 
