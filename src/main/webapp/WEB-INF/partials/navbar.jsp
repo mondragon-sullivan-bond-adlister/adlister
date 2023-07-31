@@ -6,8 +6,14 @@
             <a class="navbar-brand" href="<c:url value="/ads"/>">Adlister</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="<c:url value="/login"/>">Login</a></li>
-            <li><a href="<c:url value="/logout"/>">Logout</a></li>
+            <c:choose>
+                <c:when test="${empty sessionScope.user}">
+                    <li><a href="<c:url value="/login"/>">Login</a></li>
+                </c:when>
+                <c:otherwise>
+                    <li><a href="<c:url value="/logout"/>">Logout</a></li>
+                </c:otherwise>
+            </c:choose>
         </ul>
     </div>
 </nav>

@@ -20,6 +20,7 @@ public class LoginServlet extends HttpServlet {
             return;
         }
         request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -36,7 +37,13 @@ public class LoginServlet extends HttpServlet {
 
         if (validAttempt) {
             request.getSession().setAttribute("user", user);
-            response.sendRedirect("/profile");
+            String redirectUrl = (String) request.getSession().getAttribute("redirectAfterLogin");
+            if (redirectUrl != null) {
+                request.getSession().removeAttribute("redirectAfterLogin");
+                response.sendRedirect(redirectUrl);
+            } else {
+                response.sendRedirect("/profile");
+            }
         } else {
             response.sendRedirect("/login");
         }
