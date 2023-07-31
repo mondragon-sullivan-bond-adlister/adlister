@@ -9,5 +9,5 @@
             <li><a href="<c:url value="/login"/>">Login</a></li>
             <li><a href="<c:url value="/logout"/>">Logout</a></li>
         </ul>
-    </div><!-- /.container-fluid -->
+    </div>
 </nav>
