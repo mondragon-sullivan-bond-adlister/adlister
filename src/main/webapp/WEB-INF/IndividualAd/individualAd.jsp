@@ -22,9 +22,9 @@
     <p>${ad.description}</p>
     <!--ad details-->
 
-    <h2>Posted by: ${ad.user.username}</h2>
-    <p>Contact: ${ad.user.email}</p>
-    <!--user details-->
+<%--    <h2>Posted by: ${ad.user.username}</h2>--%>
+<%--    <p>Contact: ${ad.user.email}</p>--%>
+<%--    <!--user details-->--%>
 </div>
 
 </body>

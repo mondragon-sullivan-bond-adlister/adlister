@@ -40,6 +40,7 @@ public class LoginServlet extends HttpServlet {
         if (validAttempt) {
             request.getSession().setAttribute("user", user);
             String redirectUrl = (String) request.getSession().getAttribute("redirectAfterLogin");
+            System.out.println("request.getSession().getAttribute(\"redirectAfterLogin\") = " + request.getSession().getAttribute("redirectAfterLogin"));
             if (redirectUrl != null) {
                 request.getSession().removeAttribute("redirectAfterLogin");
                 response.sendRedirect(redirectUrl);
