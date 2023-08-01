@@ -63,7 +63,6 @@ public class LoginServlet extends HttpServlet {
                 request.setAttribute("Error1", error1);
                 request.setAttribute("username", username);
                 request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
-
         }
     }
 }
