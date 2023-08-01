@@ -75,6 +75,20 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    @Override
+    public List<Ad> searchCat(long l) {
+        PreparedStatement stmt = null;
+        String sql = "SELECT * FROM ads LEFT JOIN catAdd cA ON ads.id = cA.ad_id WHERE cA.cat_id = ?";
+        try {
+            stmt = connection.prepareStatement(sql);
+            stmt.setLong(1, l);
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all ads.", e);
+        }
+    }
+
 
     @Override
     public Ad getAdById(long l) {
@@ -126,6 +140,7 @@ public class MySQLAdsDao implements Ads {
         while (rs.next()) {
             ads.add(extractAd(rs));
         }
+        System.out.println("ads = " + ads);
         return ads;
     }
 
