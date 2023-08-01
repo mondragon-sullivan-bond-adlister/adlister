@@ -14,11 +14,11 @@
         <form action="<c:url value="/register"/>" method="post">
             <div class="form-group">
                 <label for="username">Username</label>
-                <input id="username" name="username" class="form-control" type="text">
+                <input id="username" name="username" class="form-control" type="text" value="${username}">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input id="email" name="email" class="form-control" type="text">
+                <input id="email" name="email" class="form-control" type="email" value="${email}">
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
@@ -35,6 +35,9 @@
     <script>
         <c:if test="${not empty Error}">
         alert("Username or Email is already taken! Please try again.");
+        </c:if>
+        <c:if test="${not empty Error1}">
+        alert("One or more of the fields were empty! Please try again.");
         </c:if>
     </script>
 </body>
