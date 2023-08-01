@@ -13,7 +13,7 @@
         <form action="<c:url value="/login"/>" method="POST">
             <div class="form-group">
                 <label for="username">Username</label>
-                <input id="username" name="username" class="form-control" type="text">
+                <input id="username" name="username" class="form-control" type="text" value="${username}">
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
@@ -22,5 +22,17 @@
             <input type="submit" class="btn btn-primary btn-block" value="Log In">
         </form>
     </div>
+
+    <script>
+        <c:if test="${not empty Error}">
+        alert("Username or Password was empty! Please try again");
+        </c:if>
+        <c:if test="${not empty Error1}">
+        alert("Username was incorrect! Please try again");
+        </c:if>
+        <c:if test="${not empty Error2}">
+        alert("Password was incorrect! Please try again");
+        </c:if>
+    </script>
 </body>
 </html>

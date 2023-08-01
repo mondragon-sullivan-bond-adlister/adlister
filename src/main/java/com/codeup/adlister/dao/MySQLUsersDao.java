@@ -91,7 +91,6 @@ public class MySQLUsersDao implements Users {
             } else {
                 throw new RuntimeException("Error creating new user", e);
             }
-
         }
         }
     }
