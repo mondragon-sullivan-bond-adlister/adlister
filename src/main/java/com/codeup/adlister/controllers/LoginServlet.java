@@ -2,7 +2,6 @@ package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.User;
-import com.codeup.adlister.util.Password;
 import org.mindrot.jbcrypt.BCrypt;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,6 +41,7 @@ public class LoginServlet extends HttpServlet {
 
             boolean passwordsMatch = BCrypt.checkpw(password, user.getPassword());
 
+
             if (passwordsMatch) {
                 request.getSession().setAttribute("user", user);
                 String redirectUrl = (String) request.getSession().getAttribute("redirectAfterLogin");
@@ -63,6 +63,7 @@ public class LoginServlet extends HttpServlet {
                 request.setAttribute("Error1", error1);
                 request.setAttribute("username", username);
                 request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+
         }
     }
 }
