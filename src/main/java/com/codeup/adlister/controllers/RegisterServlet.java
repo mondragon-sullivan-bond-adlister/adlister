@@ -31,8 +31,13 @@ public class RegisterServlet extends HttpServlet {
             || password.isEmpty()
             || (! password.equals(passwordConfirmation));
 
+        // check if there are issues with the inputs above
         if (inputHasErrors) {
-            response.sendRedirect("/register");
+            String error = "1";
+            request.setAttribute("username", username);
+            request.setAttribute("email", email);
+            request.setAttribute("Error1", error);
+            request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
             return;
         }
 
@@ -40,17 +45,20 @@ public class RegisterServlet extends HttpServlet {
         User user = new User(username, email, password);
 
         // hash the password
-
         String hash = Password.hash(user.getPassword());
 
+        // add hashed password to the user
         user.setPassword(hash);
 
+        // try to insert user or catch the error
         try {
             DaoFactory.getUsersDao().insert(user);
             response.sendRedirect("/login");
         } catch (RuntimeException e){
-            if(e.getMessage().contains("Error creating new user: Username is already taken.")) {
+            if(e.getMessage().contains("Error creating new user: Username or Email is already taken.")) {
                 request.setAttribute("Error", e.getMessage());
+                request.setAttribute("username", username);
+                request.setAttribute("email", email);
                 request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
                 return;
             }

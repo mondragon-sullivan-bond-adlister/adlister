@@ -21,30 +21,48 @@ public class LoginServlet extends HttpServlet {
 
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         User user = DaoFactory.getUsersDao().findByUsername(username);
 
-        if (user == null) {
-            response.sendRedirect("/login");
-            return;
-        }
+        try {
 
-        boolean passwordsMatch = BCrypt.checkpw(password, user.getPassword());
+            boolean inputHasErrors = username.isEmpty()
+                    || password.isEmpty();
 
-        if (passwordsMatch) {
-            request.getSession().setAttribute("user", user);
-            String redirectUrl = (String) request.getSession().getAttribute("redirectAfterLogin");
-            System.out.println("request.getSession().getAttribute(\"redirectAfterLogin\") = " + request.getSession().getAttribute("redirectAfterLogin"));
-            if (redirectUrl != null) {
-                request.getSession().removeAttribute("redirectAfterLogin");
-                response.sendRedirect(redirectUrl);
-            } else {
-                response.sendRedirect("/profile");
+            if (inputHasErrors) {
+                String error = "Username or Password was empty. Please try again!";
+                request.setAttribute("username", username);
+                request.setAttribute("Error", error);
+                request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+                return;
             }
-        } else {
-            response.sendRedirect("/login");
+
+            boolean passwordsMatch = BCrypt.checkpw(password, user.getPassword());
+
+
+            if (passwordsMatch) {
+                request.getSession().setAttribute("user", user);
+                String redirectUrl = (String) request.getSession().getAttribute("redirectAfterLogin");
+                System.out.println("request.getSession().getAttribute(\"redirectAfterLogin\") = " + request.getSession().getAttribute("redirectAfterLogin"));
+                if (redirectUrl != null) {
+                    request.getSession().removeAttribute("redirectAfterLogin");
+                    response.sendRedirect(redirectUrl);
+                } else {
+                    response.sendRedirect("/profile");
+                }
+            } else {
+                String error2 = "The password you typed was incorrect!";
+                request.setAttribute("Error2", error2);
+                request.setAttribute("username", username);
+                request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+            }
+        } catch (RuntimeException e){
+                String error1 = "The username you typed was incorrect!";
+                request.setAttribute("Error1", error1);
+                request.setAttribute("username", username);
+                request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
         }
     }
 }

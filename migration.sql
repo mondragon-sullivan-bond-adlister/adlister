@@ -6,13 +6,10 @@ DROP TABLE IF EXISTS ads;
 DROP TABLE IF EXISTS users;
 
 
-DROP USER 'john'@'localhost';
-
-
 CREATE TABLE users (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     username VARCHAR(240) NOT NULL UNIQUE,
-    email VARCHAR(240) NOT NULL,
+    email VARCHAR(240) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 );
@@ -27,7 +24,5 @@ CREATE TABLE ads (
         ON DELETE CASCADE
 );
 
-USE adlister_db;
-INSERT INTO ads (id, user_id, title, description)
-VALUES (1, 1, 'Washer', 'Big Washer');
+
 
