@@ -16,6 +16,12 @@
 
     <button type="button" class="btn btn-primary" onclick="window.location.href='/edit-profile'">Update Profile</button>
     <button type="button" class="btn btn-primary" onclick="window.location.href='/showUserAds'">View your ads</button>
+<%--    <button type="button" class="btn btn-primary" onclick="window.location.href='/delete-user'">Delete your entire profile</button>--%>
+    <form action="/delete-user" method="post">
+        <!-- Include any other form fields here -->
+        <input type="hidden" name="username" value="${user.username}">
+        <button type="submit" class="btn btn-primary">Delete User</button>
+    </form>
 
 
 </body>
