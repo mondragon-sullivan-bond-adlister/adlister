@@ -92,6 +92,22 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error retrieving the ad.", e);
         }
     }
+    // Inside MySQLAdsDao class
+
+    @Override
+    public List<Ad> getAdsByUserId(long userId) {
+        String sql = "SELECT * FROM ads WHERE user_id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setLong(1, userId);
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving ads by user ID.", e);
+        }
+    }
+
+
 
 
     private Ad extractAd(ResultSet rs) throws SQLException {
@@ -110,4 +126,5 @@ public class MySQLAdsDao implements Ads {
         }
         return ads;
     }
+
 }

@@ -2,7 +2,6 @@ package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.User;
-import com.codeup.adlister.util.Password;
 import org.mindrot.jbcrypt.BCrypt;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -36,14 +35,15 @@ public class LoginServlet extends HttpServlet {
 
         if (passwordsMatch) {
             request.getSession().setAttribute("user", user);
-            String redirectUrl = (String) request.getSession().getAttribute("redirectAfterLogin");
-            System.out.println("request.getSession().getAttribute(\"redirectAfterLogin\") = " + request.getSession().getAttribute("redirectAfterLogin"));
-            if (redirectUrl != null) {
-                request.getSession().removeAttribute("redirectAfterLogin");
-                response.sendRedirect(redirectUrl);
-            } else {
-                response.sendRedirect("/profile");
-            }
+            response.sendRedirect("/profile");
+//            String redirectUrl = (String) request.getSession().getAttribute("redirectAfterLogin");
+//            System.out.println("request.getSession().getAttribute(\"redirectAfterLogin\") = " + request.getSession().getAttribute("redirectAfterLogin"));
+//            if (redirectUrl != null) {
+//                request.getSession().removeAttribute("redirectAfterLogin");
+//                response.sendRedirect(redirectUrl);
+//            } else {
+//                response.sendRedirect("/profile");
+//            }
         } else {
             response.sendRedirect("/login");
         }

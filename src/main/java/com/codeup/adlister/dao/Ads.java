@@ -13,4 +13,5 @@ public interface Ads {
     List<Ad> search(String s);
 
     Ad getAdById(long l);
-}
+
+    List<Ad> getAdsByUserId(long userId);}

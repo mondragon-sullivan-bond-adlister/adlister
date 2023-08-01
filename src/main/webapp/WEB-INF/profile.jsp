@@ -15,6 +15,7 @@
     </div>
 
     <button type="button" class="btn btn-primary" onclick="window.location.href='/edit-profile'">Update Profile</button>
+    <button type="button" class="btn btn-primary" onclick="window.location.href='/showUserAds'">View your ads</button>
 
 
 </body>
