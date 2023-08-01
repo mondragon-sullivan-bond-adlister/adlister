@@ -17,6 +17,22 @@
 </head>
 <body>
 <jsp:include page="partials/navbar.jsp" />
+<script>
+  function deleteAlert(adId) {
+    if (confirm("Are you sure you want to delete this ad?")) {
+      const form = document.createElement('form');
+      form.method = 'post';
+      form.action = '/delete-ad';
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = 'id';
+      input.value = adId;
+      form.appendChild(input);
+      document.body.appendChild(form);
+      form.submit();
+    }
+  }
+</script>
 
 <c:choose>
   <c:when test="${empty userAds}">
@@ -30,18 +46,19 @@
             <div class="card-body">
               <h5 class="card-title">${ad.title}</h5>
               <p class="card-text">${ad.description}</p>
-              <a href="/edit-ads?id=${ad.id}" class="card-link">Edit</a>
-<%--              <a href="/edit-ads?${Ad.getId()}" class="card-link">Card link</a>--%>
-              <a href="#" class="card-link">Another link</a>
-            </div>
+              <a href="<c:url value='/edit-ads?id='/><c:out value='${ad.id}'/>" class="card-link">Edit</a>
+              <form action="/delete-ad" method="post">
+                <input type="hidden" name="id" value="${ad.id}">
+                <button type="button" class="btn btn-link card-link" onclick="deleteAlert(${ad.id})">Delete</button>
+              </form>
           </div>
-
-
-          <li>${ad.title} - ${ad.description}</li>
         </c:if>
       </c:forEach>
     </ul>
   </c:otherwise>
 </c:choose>
+
+
+
 </body>
 </html>
