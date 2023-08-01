@@ -8,4 +8,5 @@ public interface Users {
 
     void updateUser(String username, String email, String password, long id);
 
+    void deleteUser(String username);
 }
