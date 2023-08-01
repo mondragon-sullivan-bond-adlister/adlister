@@ -14,4 +14,8 @@ public interface Ads {
 
     Ad getAdById(long l);
 
-    List<Ad> getAdsByUserId(long userId);}
+    List<Ad> getAdsByUserId(long userId);
+
+    void updateAd(String title, String Description, long id);
+}
+

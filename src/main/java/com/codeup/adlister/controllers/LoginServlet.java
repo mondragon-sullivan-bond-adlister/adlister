@@ -35,15 +35,14 @@ public class LoginServlet extends HttpServlet {
 
         if (passwordsMatch) {
             request.getSession().setAttribute("user", user);
-            response.sendRedirect("/profile");
-//            String redirectUrl = (String) request.getSession().getAttribute("redirectAfterLogin");
-//            System.out.println("request.getSession().getAttribute(\"redirectAfterLogin\") = " + request.getSession().getAttribute("redirectAfterLogin"));
-//            if (redirectUrl != null) {
-//                request.getSession().removeAttribute("redirectAfterLogin");
-//                response.sendRedirect(redirectUrl);
-//            } else {
-//                response.sendRedirect("/profile");
-//            }
+            String redirectUrl = (String) request.getSession().getAttribute("redirectAfterLogin");
+            System.out.println("request.getSession().getAttribute(\"redirectAfterLogin\") = " + request.getSession().getAttribute("redirectAfterLogin"));
+            if (redirectUrl != null) {
+                request.getSession().removeAttribute("redirectAfterLogin");
+                response.sendRedirect(redirectUrl);
+            } else {
+                response.sendRedirect("/profile");
+            }
         } else {
             response.sendRedirect("/login");
         }

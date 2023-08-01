@@ -27,7 +27,6 @@ public class MySQLAdsDao implements Ads {
     }
 
     public MySQLAdsDao(Config config, Config config1) {
-
         this.config = config1;
     }
 
@@ -107,7 +106,10 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    @Override
+    public void updateAd(String title, String Description, long id) {
 
+    }
 
 
     private Ad extractAd(ResultSet rs) throws SQLException {
@@ -125,6 +127,19 @@ public class MySQLAdsDao implements Ads {
             ads.add(extractAd(rs));
         }
         return ads;
+    }
+
+    public void updateAd(String title, String description, int id){
+        String query = "UPDATE ads SET title = ?, description = ? WHERE (id = ?)";
+        try{
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, title);
+            stmt.setString(2, description);
+            stmt.setLong(3, id);
+            stmt.executeUpdate();
+        } catch(SQLException e){
+            throw new RuntimeException("Error updating ad");
+        }
     }
 
 }
