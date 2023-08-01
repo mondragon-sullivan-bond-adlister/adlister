@@ -49,11 +49,12 @@ public class RegisterServlet extends HttpServlet {
             DaoFactory.getUsersDao().insert(user);
             response.sendRedirect("/login");
         } catch (RuntimeException e){
-            if(e.getMessage().contains("Error creating new user: Username is already taken.")) {
+            if(e.getMessage().contains("Error creating new user: Username or Email is already taken.")) {
                 request.setAttribute("Error", e.getMessage());
                 request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
                 return;
             }
+
         }
     }
 }
