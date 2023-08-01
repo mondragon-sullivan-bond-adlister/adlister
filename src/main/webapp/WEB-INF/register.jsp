@@ -34,7 +34,7 @@
 
     <script>
         <c:if test="${not empty Error}">
-        alert("Username already taken. Please use a different username.");
+        alert("Username or Email is already taken! Please try again.");
         </c:if>
     </script>
 </body>

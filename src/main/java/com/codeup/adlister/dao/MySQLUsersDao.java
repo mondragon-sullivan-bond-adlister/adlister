@@ -49,8 +49,8 @@ public class MySQLUsersDao implements Users {
             return rs.getLong(1);
         } catch (SQLException e) {
             if (e.getErrorCode() == 1062){
-                System.err.println("Username is already taken. Please try again.");
-                throw new RuntimeException("Error creating new user: Username is already taken.");
+                System.err.println("Username or Email is already taken! Please try again.");
+                throw new RuntimeException("Error creating new user: Username or Email is already taken.");
 
             } else {
                 throw new RuntimeException("Error creating new user", e);
