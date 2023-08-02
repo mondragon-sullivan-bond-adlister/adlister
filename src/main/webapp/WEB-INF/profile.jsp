@@ -11,6 +11,26 @@
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
+    <div class="container text-center mb-3">
+        <h1>Welcome, ${sessionScope.user.username}!</h1>
+    </div>
+
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-sm-2 mb-3">
+                <button type="button" class="btn btn-primary btn-block" onclick="window.location.href='/edit-profile'">Update Profile</button>
+            </div>
+            <div class="col-sm-2 mb-3">
+                <button type="button" class="btn btn-primary btn-block" onclick="window.location.href='/showUserAds'">View your ads</button>
+            </div>
+            <div class="col-sm-2 mb-3">
+                <form action="/delete-user" method="post">
+                    <input type="hidden" name="username" value="${user.username}">
+                    <button type="submit" class="btn btn-primary btn-block" onclick="deleteAlert('${sessionScope.user.username}'); return false;">Delete User</button>
+                </form>
+            </div>
+        </div>
+    </div>
     <script>
         function deleteAlert(user) {
             if (confirm("Are you sure you want to delete your profile?")) {
@@ -29,19 +49,5 @@
             }
         }
     </script>
-
-    <div class="container">
-        <h1>Welcome, ${sessionScope.user.username}!</h1>
-    </div>
-
-    <button type="button" class="btn btn-primary" onclick="window.location.href='/edit-profile'">Update Profile</button>
-    <button type="button" class="btn btn-primary" onclick="window.location.href='/showUserAds'">View your ads</button>
-<%--    <button type="button" class="btn btn-primary" onclick="window.location.href='/delete-user'">Delete your entire profile</button>--%>
-    <form action="/delete-user" method="post">
-        <!-- Include any other form fields here -->
-        <input type="hidden" name="username" value="${user.username}">
-        <button type="submit" class="btn btn-primary" onclick="deleteAlert('${sessionScope.user.username}'); return false;">Delete User</button>
-    </form>
-
 </body>
 </html>
