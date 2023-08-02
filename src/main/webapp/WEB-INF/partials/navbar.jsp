@@ -4,7 +4,13 @@
         nav.navbar.navbar-default {
             background-color: #7090A4;
         }
-        li {
+        .d-inline {
+            text-decoration: none;
+            margin-right: 10px;
+            color: #161A22 ;
+        }
+        a {
+            text-decoration: none;
             color: #161A22 ;
         }
     </style>
@@ -16,16 +22,16 @@
         <div class="navbar-header">
             <a class="navbar-brand" style="color: #161A22" href="<c:url value="/index.jsp"/>">Adlister</a>
         </div>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a style="color: #161A22" href="<c:url value="/ads"/>">View Ads</a></li>
+        <ul class="nav navbar-nav navbar-right list-group-horizontal">
+            <li class="d-inline"><a style="color: #161A22" href="<c:url value="/ads"/>">View Ads</a></li>
             <c:choose>
                 <c:when test="${empty sessionScope.user}">
-                    <li><a style="color: #161A22" href="<c:url value="/login"/>">Login</a></li>
+                    <li><a class="d-inline" style="color: #161A22" href="<c:url value="/login"/>">Login</a></li>
                 </c:when>
                 <c:otherwise>
-                    <li><a style="color: #161A22" href="<c:url value="/profile"/>">Profile</a></li>
-                    <li><a style="color: #161A22" href="<c:url value="/ads/create"/>">Create Ad</a></li>
-                    <li><a style="color: #161A22" href="<c:url value="/logout"/>">Logout</a></li>
+                    <li><a class="d-inline" style="color: #161A22" href="<c:url value="/profile"/>">Profile</a></li>
+                    <li><a class="d-inline" style="color: #161A22" href="<c:url value="/ads/create"/>">Create Ad</a></li>
+                    <li><a class="d-inline" style="color: #161A22" href="<c:url value="/logout"/>">Logout</a></li>
                 </c:otherwise>
             </c:choose>
         </ul>

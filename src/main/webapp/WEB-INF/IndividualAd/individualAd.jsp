@@ -19,14 +19,20 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <div class="container">
-    <h1>${ad.title}</h1>
-    <p>${ad.description}</p>
-    <!--ad details-->
-
-<%--    <h2>Posted by: ${ad.user.username}</h2>--%>
-<%--    <p>Contact: ${ad.user.email}</p>--%>
-<%--    <!--user details-->--%>
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-8 col-lg-6"> <!-- Change these numbers to affect the size -->
+            <div class="card">
+                <img src="https://picsum.photos/200/300" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h1>${ad.title}</h1>
+                    <p>${ad.description}</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+
 
 </body>
 </html>

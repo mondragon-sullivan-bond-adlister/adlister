@@ -4,7 +4,7 @@ h1, label, h4 {
 h1 {
     text-align: center;
 }
-a {
+a.mi {
     color: #7090A4;
 }
 .btn {
@@ -15,6 +15,9 @@ img.card-img-top {
 }
 .card {
  background: none;
+}
+.form-control {
+    margin-bottom: 10px;
 }
 
 
