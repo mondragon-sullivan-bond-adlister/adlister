@@ -1,19 +1,10 @@
-<%--<jsp:useBean id="ad" scope="request" type="com.sun.imageio.spi.FileImageOutputStreamSpi"/>--%>
-<%--
-  Created by IntelliJ IDEA.
-  User: danielmondragon
-  Date: 7/27/23
-  Time: 1:40 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Individual Ad" />
+        <jsp:param name="title" value="${ad.title}" />
     </jsp:include>
-    <link rel="stylesheet" type="text/css" href="css/body.css">
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
@@ -31,9 +22,7 @@
         </div>
     </div>
 </div>
-
-
-
+<jsp:include page="/WEB-INF/partials/script.jsp"/>
 </body>
 </html>
 

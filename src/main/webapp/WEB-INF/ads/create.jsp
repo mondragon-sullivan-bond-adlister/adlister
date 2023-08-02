@@ -4,7 +4,6 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Create a new Ad" />
     </jsp:include>
-    <link rel="stylesheet" type="text/css" href="css/body.css">
     <style>
         body {
             background-color: #161A22;
@@ -15,7 +14,7 @@
     </style>
 </head>
 <body>
-<jsp:include page="../partials/navbar.jsp" />
+<jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container">
         <h1>Create a new Ad</h1>
         <form action="/ads/create" method="post">
@@ -46,5 +45,6 @@
             <input type="submit" class="btn btn-block btn-primary">
         </form>
     </div>
+    <jsp:include page="/WEB-INF/partials/script.jsp"/>
 </body>
 </html>

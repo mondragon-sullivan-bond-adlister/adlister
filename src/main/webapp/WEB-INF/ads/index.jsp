@@ -5,7 +5,6 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Viewing All The Ads" />
     </jsp:include>
-    <link rel="stylesheet" type="text/css" href="css/body.css">
     <link rel="stylesheet" type="text/css" href="css/AllAds.css">
 </head>
 <body>
@@ -57,5 +56,6 @@
     </c:forEach>
     </div>
 </div>
+<jsp:include page="/WEB-INF/partials/script.jsp"/>
 </body>
 </html>

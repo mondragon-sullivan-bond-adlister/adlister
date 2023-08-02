@@ -5,7 +5,6 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Please Log In" />
     </jsp:include>
-    <link rel="stylesheet" type="text/css" href="css/body.css">
     <style>
         p {
             align-self: center;
@@ -35,7 +34,6 @@
             <input class="btn btn-primary btn-block" value="Register Here" type="submit"/>
         </form>
     </div>
-
     <script>
         <c:if test="${not empty Error}">
         alert("Username or Password was empty! Please try again");
@@ -47,5 +45,6 @@
         alert("Password was incorrect! Please try again");
         </c:if>
     </script>
+    <jsp:include page="/WEB-INF/partials/script.jsp"/>
 </body>
 </html>

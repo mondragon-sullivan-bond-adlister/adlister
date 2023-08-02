@@ -5,8 +5,6 @@
     <jsp:include page="partials/head.jsp">
         <jsp:param name="title" value="Register For Our Site!" />
     </jsp:include>
-    <title>Register</title>
-    <link rel="stylesheet" type="text/css" href="css/body.css">
 </head>
 <body>
     <jsp:include page="partials/navbar.jsp" />
@@ -33,7 +31,6 @@
             <input type="submit" class="btn btn-primary btn-block">
         </form>
     </div>
-
     <script>
         <c:if test="${not empty Error}">
         alert("Username or Email is already taken! Please try again.");
@@ -42,5 +39,6 @@
         alert("One or more of the fields were empty! Please try again.");
         </c:if>
     </script>
+    <jsp:include page="/WEB-INF/partials/script.jsp"/>
 </body>
 </html>
