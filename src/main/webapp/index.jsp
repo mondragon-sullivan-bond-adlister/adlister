@@ -9,8 +9,8 @@
     <link rel="stylesheet" type="text/css" href="css/Home.css">
     <style>
         h1 {
-            align-items: center;
-            display: flex;
+            text-decoration: none;
+            text-align: center;
         }
         .card-title {
             color: #7090A4;
@@ -21,7 +21,7 @@
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container">
-        <h1 style="align-items: center">Welcome to the Adlister!</h1>
+        <h1>Welcome to Adlister</h1>
     </div>
     <div class="card-container">
         <div class="row">
@@ -33,7 +33,7 @@
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
+                                    <h5 class="card-title">Category</h5>
                                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                             </div>
@@ -46,9 +46,9 @@
                     <div class="row no-gutters2">
                         <div class="col-md-8 order-md-1">
                             <div class="card-body2">
-                                <h5 class="card-title">Card title</h5>
+                                <h5 class="card-title">Category</h5>
                                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                <p class="card-text"><small class="text-muted"></small></p>
                             </div>
                         </div>
                         <div class="col-md-4 order-md-2">
@@ -65,9 +65,9 @@
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
+                                <h5 class="card-title">Category</h5>
                                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                <p class="card-text"><small class="text-muted"></small></p>
                             </div>
                         </div>
                     </div>
@@ -78,9 +78,9 @@
                     <div class="row no-gutters2">
                         <div class="col-md-8 order-md-1">
                             <div class="card-body2">
-                                <h5 class="card-title">Card title</h5>
+                                <h5 class="card-title">Category</h5>
                                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                <p class="card-text"><small class="text-muted"></small></p>
                             </div>
                         </div>
                         <div class="col-md-4 order-md-2">

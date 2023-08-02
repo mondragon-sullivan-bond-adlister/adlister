@@ -6,6 +6,7 @@
         <jsp:param name="title" value="Viewing All The Ads" />
     </jsp:include>
     <link rel="stylesheet" type="text/css" href="css/body.css">
+    <link rel="stylesheet" type="text/css" href="css/AllAds.css">
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
@@ -40,15 +41,31 @@
         </div>
     </c:if>
     <c:forEach var="ad" items="${ads}">
-        <div class="col-md-6">
-            <h2>${ad.title}</h2>
-            <p>${ad.description}</p>
-<%--            <form action="/ad" method="post">--%>
-<%--                <button type="submit" name="ad1" value="${ad.id}" >more info</button>--%>
-<%--            </form>--%>
-            <a href="/ad?${ad.id}">Check this out</a>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+
+            <div class="card" >
+                <img src="https://picsum.photos/200/300" class="card-img-top mx-auto d-block" alt="...">
+                <div class="card-body">
+                    <h4>${ad.title}</h4>
+                    <p>${ad.description}</p>
+                </div>
+                <div class="card-body">
+                    <a href="/ad?${ad.id}">More Info</a>
+                </div>
+            </div>
+
         </div>
     </c:forEach>
 </div>
+<%--<div class="card" >--%>
+<%--    <img src="..." class="card-img-top" alt="...">--%>
+<%--    <div class="card-body">--%>
+<%--        <h4>${ad.title}</h4>--%>
+<%--        <p>${ad.description}</p>--%>
+<%--    </div>--%>
+<%--    <div class="card-body">--%>
+<%--        <a href="/ad?${ad.id}">Check this out</a>--%>
+<%--    </div>--%>
+<%--</div>--%>
 </body>
 </html>
