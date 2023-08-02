@@ -15,12 +15,15 @@ public class AdsIndexServlet extends HttpServlet {
         request.setAttribute("ads", DaoFactory.getAdsDao().all());
         request.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(request, response);
     }
+    // the do post will grab the params and use them for the searches or all adds
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String search = request.getParameter("search");
         String cat = request.getParameter("cat");
         System.out.println("cat = " + cat);
         String all = request.getParameter("all");
         String error = "no ad";
+
+        // if a search was made it will render the search results ELSE if a category search was done it will render the results
         if(search != null){
             try {
                 request.setAttribute("ads", DaoFactory.getAdsDao().search(search));
@@ -42,7 +45,5 @@ public class AdsIndexServlet extends HttpServlet {
                 request.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(request, response);
             }
         }
-
-
     }
 }

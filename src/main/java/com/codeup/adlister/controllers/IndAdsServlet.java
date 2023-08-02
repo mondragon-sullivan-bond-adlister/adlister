@@ -14,6 +14,7 @@ import java.io.IOException;
 @WebServlet(name = "IndAdsServlet", value = "/ad")
 public class IndAdsServlet extends HttpServlet {
 
+    // shows the individual ad that a user selected
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getSession().getAttribute("user") == null) {

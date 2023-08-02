@@ -20,12 +20,12 @@ public class CreateAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if(request.getSession().getAttribute("user") == null) {
             response.sendRedirect("/login");
-            // add a return statement to exit out of the entire method.
             return;
         }
         request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
     }
 
+    // allows the user to create an ad and submit a category with the ad
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         User loggedInUser = (User) request.getSession().getAttribute("user");
         Ad ad = new Ad(

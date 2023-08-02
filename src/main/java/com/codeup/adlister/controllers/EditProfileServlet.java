@@ -21,10 +21,9 @@ public class EditProfileServlet extends HttpServlet {
         long userId = currentUser.getId();
         System.out.println("userId = " + userId);
         request.getRequestDispatcher("/WEB-INF/edit-profile.jsp").forward(request, response);
-
-
     }
 
+    // allows users to edit their profile
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String newUsername = request.getParameter("username");
         String newEmail = request.getParameter("email");

@@ -17,6 +17,27 @@
 </head>
 <body>
 <jsp:include page="partials/navbar.jsp" />
+<c:choose>
+  <c:when test="${empty userAds}">
+    <h3>No ads found for this user.</h3>
+  </c:when>
+  <c:otherwise>
+      <c:forEach items="${userAds}" var="ad">
+        <c:if test="${ad.getUserId() eq user.id}">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">${ad.title}</h5>
+              <p class="card-text">${ad.description}</p>
+              <a href="<c:url value='/edit-ads?id='/><c:out value='${ad.id}'/>" class="card-link">Edit</a>
+              <form action="/delete-ad" method="post">
+                <input type="hidden" name="id" value="${ad.id}">
+                <button type="button" class="btn btn-link card-link" onclick="deleteAlert(${ad.id}); return false">Delete</button>
+              </form>
+          </div>
+        </c:if>
+      </c:forEach>
+  </c:otherwise>
+</c:choose>
 <script>
   function deleteAlert(adId) {
     if (confirm("Are you sure you want to delete this ad?")) {
@@ -35,32 +56,5 @@
     }
   }
 </script>
-
-<c:choose>
-  <c:when test="${empty userAds}">
-    <h3>No ads found for this user.</h3>
-  </c:when>
-  <c:otherwise>
-    <ul>
-      <c:forEach items="${userAds}" var="ad">
-        <c:if test="${ad.getUserId() eq user.id}">
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">${ad.title}</h5>
-              <p class="card-text">${ad.description}</p>
-              <a href="<c:url value='/edit-ads?id='/><c:out value='${ad.id}'/>" class="card-link">Edit</a>
-              <form action="/delete-ad" method="post">
-                <input type="hidden" name="id" value="${ad.id}">
-                <button type="button" class="btn btn-link card-link" onclick="deleteAlert(${ad.id}); return false">Delete</button>
-              </form>
-          </div>
-        </c:if>
-      </c:forEach>
-    </ul>
-  </c:otherwise>
-</c:choose>
-
-
-
 </body>
 </html>

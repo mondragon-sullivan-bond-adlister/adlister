@@ -13,6 +13,7 @@ public class MySQLAdsDao implements Ads {
     private final Config config;
     private Connection connection = null;
 
+    // connects to the DB
     public MySQLAdsDao(Config config) {
         this.config = config;
         try {
@@ -31,6 +32,7 @@ public class MySQLAdsDao implements Ads {
         this.config = config1;
     }
 
+    // gets all the adds in db
     @Override
     public List<Ad> all() {
         PreparedStatement stmt = null;
@@ -43,6 +45,7 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    // adds an ad to the db
     @Override
     public Long insert(Ad ad, ArrayList<Long> cat) {
         try {
@@ -70,7 +73,7 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-
+    // lists all ads that are in the search
     @Override
     public List<Ad> search(String search) {
         PreparedStatement stmt = null;
@@ -85,7 +88,8 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error retrieving all ads.", e);
         }
     }
-
+    
+    // lists all the ads that match the category
     @Override
     public List<Ad> searchCat(long l) {
         PreparedStatement stmt = null;
@@ -100,7 +104,7 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-
+    // gets ad by id
     @Override
     public Ad getAdById(long l) {
         System.out.println("l = " + l);
@@ -116,8 +120,8 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error retrieving the ad.", e);
         }
     }
-    // Inside MySQLAdsDao class
-
+    
+    // gets ads based on the user id
     @Override
     public List<Ad> getAdsByUserId(long userId) {
         String sql = "SELECT * FROM ads WHERE user_id = ?";
@@ -136,7 +140,7 @@ public class MySQLAdsDao implements Ads {
 
     }
 
-
+    // creates and individual ad based on other methods
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
             rs.getInt("id"),
@@ -146,6 +150,7 @@ public class MySQLAdsDao implements Ads {
         );
     }
 
+    // creates an array list of the ads based on above methods
     private List<Ad> createAdsFromResults(ResultSet rs) throws SQLException {
         List<Ad> ads = new ArrayList<>();
         while (rs.next()) {
@@ -155,6 +160,7 @@ public class MySQLAdsDao implements Ads {
         return ads;
     }
 
+    // updates an ad and submits to db
     public void updateAd(String title, String description, int id){
         String query = "UPDATE ads SET title = ?, description = ? WHERE (id = ?)";
         try{
@@ -168,6 +174,7 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    // deletes ad and removed from db
     public void deleteAd(int id){
         String query = "DELETE FROM ads WHERE id = ?";
                 try{

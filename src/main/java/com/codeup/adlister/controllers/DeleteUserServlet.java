@@ -17,11 +17,13 @@ public class DeleteUserServlet extends HttpServlet {
         resp.sendRedirect("/register");
     }
 
+    // allows the user to delete account
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User loggedInUser = (User) req.getSession().getAttribute("user");
         String username = req.getParameter("username");
         DaoFactory.getUsersDao().deleteUser(username);
+        req.getSession().invalidate();
         resp.sendRedirect("/register");
     }
 }
