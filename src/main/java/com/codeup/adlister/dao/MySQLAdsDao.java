@@ -6,6 +6,7 @@ import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MySQLAdsDao implements Ads {
@@ -43,7 +44,7 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
-    public Long insert(Ad ad) {
+    public Long insert(Ad ad, ArrayList<Long> cat) {
         try {
             String insertQuery = "INSERT INTO ads(user_id, title, description) VALUES (?, ?, ?)";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
@@ -53,6 +54,16 @@ public class MySQLAdsDao implements Ads {
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
+            long ad_id = rs.getLong(1);
+            for (long i : cat) {
+                    String insertQuery1 = "INSERT INTO catAdd(ad_id, cat_id) VALUES (?, ?)";
+                    PreparedStatement stmt1 = connection.prepareStatement(insertQuery1, Statement.RETURN_GENERATED_KEYS);
+                    stmt1.setLong(1, ad_id);
+                    stmt1.setLong(2, i);
+                    stmt1.executeUpdate();
+                    ResultSet rs1 = stmt1.getGeneratedKeys();
+                    rs1.next();
+            }
             return rs.getLong(1);
         } catch (SQLException e) {
             throw new RuntimeException("Error creating a new ad.", e);
