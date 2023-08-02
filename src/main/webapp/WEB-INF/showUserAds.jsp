@@ -30,6 +30,8 @@
       form.appendChild(input);
       document.body.appendChild(form);
       form.submit();
+    } else{
+      return false
     }
   }
 </script>
@@ -49,7 +51,7 @@
               <a href="<c:url value='/edit-ads?id='/><c:out value='${ad.id}'/>" class="card-link">Edit</a>
               <form action="/delete-ad" method="post">
                 <input type="hidden" name="id" value="${ad.id}">
-                <button type="button" class="btn btn-link card-link" onclick="deleteAlert(${ad.id})">Delete</button>
+                <button type="button" class="btn btn-link card-link" onclick="deleteAlert(${ad.id}); return false">Delete</button>
               </form>
           </div>
         </c:if>

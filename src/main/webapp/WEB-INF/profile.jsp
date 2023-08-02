@@ -26,10 +26,28 @@
             <div class="col-sm-2 mb-3">
                 <form action="/delete-user" method="post">
                     <input type="hidden" name="username" value="${user.username}">
-                    <button type="submit" class="btn btn-primary btn-block">Delete User</button>
+                    <button type="submit" class="btn btn-primary btn-block" onclick="deleteAlert('${sessionScope.user.username}'); return false;">Delete User</button>
                 </form>
             </div>
         </div>
     </div>
+    <script>
+        function deleteAlert(user) {
+            if (confirm("Are you sure you want to delete your profile?")) {
+                const form = document.createElement('form');
+                form.method = 'post';
+                form.action = '/delete-user';
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'id';
+                input.value = user;
+                form.appendChild(input);
+                document.body.appendChild(form);
+                form.submit();
+            } else{
+                return false;
+            }
+        }
+    </script>
 </body>
 </html>
