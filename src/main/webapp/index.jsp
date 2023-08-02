@@ -3,9 +3,8 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Welcome to my site!" />
+        <jsp:param name="title" value="Adlister" />
     </jsp:include>
-    <link rel="stylesheet" type="text/css" href="css/body.css">
     <link rel="stylesheet" type="text/css" href="css/Home.css">
     <style>
         h1 {
@@ -16,7 +15,6 @@
             color: #7090A4;
         }
     </style>
-</head>
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
@@ -91,9 +89,6 @@
             </div>
         </div>
     </div>
-
-
-
-
+    <jsp:include page="/WEB-INF/partials/script.jsp"/>
 </body>
 </html>
