@@ -22,6 +22,8 @@ public class AdsIndexServlet extends HttpServlet {
         System.out.println("cat = " + cat);
         String all = request.getParameter("all");
         String error = "no ad";
+        String url = request.getRequestURL() + "?" + request.getQueryString();
+        System.out.println("url = " + url);
 
         // if a search was made it will render the search results ELSE if a category search was done it will render the results
         if(search != null){
