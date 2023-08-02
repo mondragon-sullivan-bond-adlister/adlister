@@ -9,6 +9,7 @@ import java.sql.*;
 public class MySQLUsersDao implements Users {
     private Connection connection;
 
+    // connects to db
     public MySQLUsersDao(Config config) {
         try {
             DriverManager.registerDriver(new Driver());
@@ -22,7 +23,7 @@ public class MySQLUsersDao implements Users {
         }
     }
 
-
+    // find user by username
     @Override
     public User findByUsername(String username) {
         String query = "SELECT * FROM users WHERE username = ? LIMIT 1";
@@ -35,6 +36,7 @@ public class MySQLUsersDao implements Users {
         }
     }
 
+    // add new user to db
     @Override
     public Long insert(User user) {
         String query = "INSERT INTO users(username, email, password) VALUES (?, ?, ?)";
@@ -58,6 +60,7 @@ public class MySQLUsersDao implements Users {
         }
     }
 
+    // get a user object based on other methods
     private User extractUser(ResultSet rs) throws SQLException {
         if (! rs.next()) {
             return null;
@@ -70,9 +73,8 @@ public class MySQLUsersDao implements Users {
         );
     }
 
-
-    @Override
     // method to update profile
+    @Override
     public void updateUser(String username, String email, String password, long id) {
         String query = "UPDATE users SET username = ?, email = ?, password = ? WHERE (id = ?)";
         try {
@@ -94,6 +96,7 @@ public class MySQLUsersDao implements Users {
         }
         }
 
+        // allow user to delete account
         public void deleteUser(String username){
             String query = "DELETE FROM users WHERE username = ?";
             try {

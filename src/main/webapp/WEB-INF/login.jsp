@@ -27,10 +27,9 @@
             </div>
             <input type="submit" class="btn btn-primary btn-block" value="Log In">
             <p>Don't have an account?</p>
-            <form method="POST" action= href="register.jsp" >
-                <input class="btn btn-primary btn-block" value="Register Here" type="submit"/>
-            </form>
-
+        </form>
+        <form method="GET" action="<c:url value="/register"/>" >
+            <input class="btn btn-primary btn-block" value="Register Here" type="submit"/>
         </form>
     </div>
 

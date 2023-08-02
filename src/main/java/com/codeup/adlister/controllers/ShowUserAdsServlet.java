@@ -14,6 +14,8 @@ import java.util.List;
 
 @WebServlet(name = "controllers.ShowUserAdsServlet", urlPatterns = "/showUserAds")
 public class ShowUserAdsServlet extends HttpServlet {
+
+    // allow user to see all their ad's in the profile page
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (req.getSession().getAttribute("user") == null) {
