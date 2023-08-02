@@ -9,6 +9,9 @@
         p {
             align-self: center;
         }
+        .form-control {
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>

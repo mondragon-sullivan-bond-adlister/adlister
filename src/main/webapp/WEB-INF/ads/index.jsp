@@ -39,22 +39,22 @@
             <h1>Sorry there are no ads that match your Search or Category selection!</h1>
         </div>
     </c:if>
+    <div class="row">
     <c:forEach var="ad" items="${ads}">
         <div class="col-sm-6 col-md-4 col-lg-3">
-
             <div class="card" >
                 <img src="https://picsum.photos/200/300" class="card-img-top mx-auto d-block" alt="...">
                 <div class="card-body">
                     <h4>${ad.title}</h4>
-                    <p>${ad.description}</p>
                 </div>
                 <div class="card-body">
-                    <a href="/ad?${ad.id}">More Info</a>
+                    <a class="mi" href="/ad?${ad.id}">More Info</a>
                 </div>
             </div>
 
         </div>
     </c:forEach>
+    </div>
 </div>
 <jsp:include page="/WEB-INF/partials/script.jsp"/>
 </body>

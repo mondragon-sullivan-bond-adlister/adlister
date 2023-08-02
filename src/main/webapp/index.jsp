@@ -21,13 +21,22 @@
     <div class="container">
         <h1>Welcome to Adlister</h1>
     </div>
-    <div class="container">
-        <div class="d-flex justify-content-center my-5">
-            <div class="card text-center">
-                <div class="card-body bg-secondary bg-gradient bg-opacity-50">
-                    <h5 class="card-title text-dark">Just Window shopping?</h5>
-                    <p class="card-text text-dark">Check out all our ads in one place and enjoy the show.</p>
-                    <a class="btn btn-secondary" href="<c:url value="/ads"/>">View All Ads</a>
+    <div class="card-container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-3 mx-auto" style="max-width: 800px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="https://picsum.photos/200/300" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                    <h5 class="card-title c13">Category</h5>
+                                <p class="card-text c14">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -43,13 +52,20 @@
                     </form>
                 </div>
             </div>
-            <div class="card text-center" style="width: 18rem;">
-                <div class="card-body bg-secondary bg-gradient bg-opacity-50">
-                    <h5 class="card-title text-dark">For trade</h5>
-                    <p class="card-text text-dark">Tired of that old couch? trade up for a new one!</p>
-                    <form action="<c:url value="/ads"/>" method="post">
-                        <button class="btn btn-secondary" name="cat" value="2">View Ads</button>
-                    </form>
+            <div class="col-12">
+                <div class="card mb-3 mx-auto" style="max-width: 800px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="https://picsum.photos/200/300" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title c13">Category</h5>
+                                <p class="card-text c14">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text"><small class="text-muted"></small></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="card text-center" style="width: 18rem;">
