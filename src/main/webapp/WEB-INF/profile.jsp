@@ -11,6 +11,25 @@
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
+    <script>
+        function deleteAlert(user) {
+            if (confirm("Are you sure you want to delete your profile?")) {
+                const form = document.createElement('form');
+                form.method = 'post';
+                form.action = '/delete-user';
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'id';
+                input.value = user;
+                form.appendChild(input);
+                document.body.appendChild(form);
+                form.submit();
+            } else{
+                return false;
+            }
+        }
+    </script>
+
     <div class="container">
         <h1>Welcome, ${sessionScope.user.username}!</h1>
     </div>
@@ -21,7 +40,7 @@
     <form action="/delete-user" method="post">
         <!-- Include any other form fields here -->
         <input type="hidden" name="username" value="${user.username}">
-        <button type="submit" class="btn btn-primary">Delete User</button>
+        <button type="submit" class="btn btn-primary" onclick="deleteAlert('${sessionScope.user.username}'); return false;">Delete User</button>
     </form>
 
 </body>
