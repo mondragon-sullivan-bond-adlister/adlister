@@ -5,7 +5,6 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Viewing All The Ads" />
     </jsp:include>
-    <link rel="stylesheet" type="text/css" href="css/body.css">
     <link rel="stylesheet" type="text/css" href="css/AllAds.css">
 </head>
 <body>
@@ -57,15 +56,6 @@
         </div>
     </c:forEach>
 </div>
-<%--<div class="card" >--%>
-<%--    <img src="..." class="card-img-top" alt="...">--%>
-<%--    <div class="card-body">--%>
-<%--        <h4>${ad.title}</h4>--%>
-<%--        <p>${ad.description}</p>--%>
-<%--    </div>--%>
-<%--    <div class="card-body">--%>
-<%--        <a href="/ad?${ad.id}">Check this out</a>--%>
-<%--    </div>--%>
-<%--</div>--%>
+<jsp:include page="/WEB-INF/partials/script.jsp"/>
 </body>
 </html>
