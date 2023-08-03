@@ -18,6 +18,9 @@
                 <button type="button" class="btn btn-primary btn-block" onclick="window.location.href='/edit-profile'">Update Profile</button>
             </div>
             <div class="p-2 bd-highlight">
+                <button type="button" class="btn btn-primary btn-block" onclick="window.location.href='/ads/create'">Create an ad</button>
+            </div>
+            <div class="p-2 bd-highlight">
                 <button type="button" class="btn btn-primary btn-block" onclick="window.location.href='/showUserAds'">View your ads</button>
             </div>
             <div class="p-2 bd-highlight">

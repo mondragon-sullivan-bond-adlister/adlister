@@ -8,16 +8,14 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-sm-12 col-md-8 col-lg-6"> <!-- Change these numbers to affect the size -->
-            <div class="card">
-                <img src="https://picsum.photos/200/300" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h1>${ad.title}</h1>
-                    <p>${ad.description}</p>
-                </div>
+<div class="container my-3">
+    <div class="row d-flex justify-content-center">
+        <div class="card bg-secondary bg-gradient" style="width: 25vw;">
+            <img src="https://picsum.photos/150/200" class="rounded mt-3" alt="...">
+            <div class="card-body">
+                <h1 class="card-title">${ad.title}</h1>
+                <p class="card-text">${ad.description}</p>
+                <a href="" class="btn btn-secondary">Contact Lister</a>
             </div>
         </div>
     </div>
