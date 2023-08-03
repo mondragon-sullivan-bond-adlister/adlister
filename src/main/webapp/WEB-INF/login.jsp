@@ -5,14 +5,7 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Please Log In" />
     </jsp:include>
-    <style>
-        p {
-            align-self: center;
-        }
-        .form-control {
-            margin-bottom: 10px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />

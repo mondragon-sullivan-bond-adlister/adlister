@@ -6,6 +6,18 @@
         <jsp:param name="title" value="Viewing All The Ads" />
     </jsp:include>
     <link rel="stylesheet" type="text/css" href="css/AllAds.css">
+    <style>
+        button.btn.btn-primary {
+            background-color: #7090A4;
+            color: white;
+            border-color: transparent;
+        }
+        button.btn.btn-primary:hover {
+            background-color: #161A22;
+            color: white;
+            border-color: #7090A4;
+        }
+    </style>
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />

@@ -1,11 +1,25 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="edit-profile" value="Edit Profile" />
     </jsp:include>
+    <style>
+        h1, label {
+            color: #7090A4;
+        }
+        input.btn.btn-primary.btn-block {
+            background-color: #7090A4;
+            color: white;
+            border-color: transparent;
+        }
+        input.btn.btn-primary.btn-block:hover {
+            background-color: #161A22;
+            color: white;
+            border-color: #7090A4;
+        }
+    </style>
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
@@ -32,9 +46,6 @@
         <input type="submit" class="btn btn-primary btn-block">
       </form>
     </div>
-<div>
-    <h3>You will be redirected to login page after update</h3>
-</div>
 <jsp:include page="/WEB-INF/partials/script.jsp"/>
 </body>
 </html>

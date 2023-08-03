@@ -1,0 +1,19 @@
+p {
+    align-self: center;
+}
+.form-control {
+    margin-bottom: 10px;
+}
+h1, label, p {
+    color: #7090A4;
+}
+input.btn.btn-primary.btn-block {
+    background-color: #7090A4;
+    color: white;
+    border-color: transparent;
+}
+input.btn.btn-primary.btn-block:hover {
+    background-color: #161A22;
+    color: white;
+    border-color: #7090A4;
+}

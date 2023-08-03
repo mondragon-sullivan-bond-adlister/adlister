@@ -10,6 +10,29 @@
             height: 80%;
             width: 40%;
         }
+        div.card.mb-3 {
+            background: #7090A4;
+        }
+        button.card-button.btn.btn-primary {
+            background-color: #161A22;
+            color: white;
+            border-color: transparent;
+        }
+        button.card-button.btn.btn-primary:hover {
+            background-color: #7090A4;
+            color: white;
+            border-color: #161A22;
+        }
+        button.btn.btn-primary {
+            background-color: #161A22;
+            color: white;
+            border-color: transparent;
+        }
+        button.btn.btn-primary:hover {
+            background-color: #7090A4;
+            color: white;
+            border-color: #161A22;
+        }
     </style>
 </head>
 <body>

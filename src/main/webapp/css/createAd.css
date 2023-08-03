@@ -1,0 +1,16 @@
+body {
+    background-color: #161A22;
+}
+h1, label{
+    color: #7090A4;
+}
+input.btn.btn-block.btn-primary {
+    background-color: #7090A4;
+    color: white;
+    border-color: transparent;
+}
+input.btn.btn-primary:hover {
+    background-color: #161A22;
+    color: white;
+    border-color: #7090A4;
+}
