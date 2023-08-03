@@ -13,13 +13,15 @@
 <div class="container">
     <h1 class="my-3">Here Are all the ads!</h1>
     <div class="container my-3">
-        <form class="form-inline" method="post" action="<c:url value="/ads"/>">
-            <div class="row d-flex justify-content-center">
-                <input type="text" name="search" class="col-2 rounded mx-1 border border-0" placeholder="">
-                <button type="submit" class="col-1 btn btn-primary mx-1">Search</button>
-                <button type="submit" class="col-1 btn btn-primary mx-1" name="all" value="all" >All Ads</button>
-                <label for="cat" class="h2 col-2 mx-1 text-end">Category:</label>
-                <select name="cat" id="cat" class="col-2 mx-1 rounded border border-0">
+        <div class="row d-flex justify-content-center">
+            <form class="col-6 d-flex justify-content-center" method="post" action="<c:url value="/ads"/>">
+                <input type="text" name="search" class=" rounded mx-1 border border-0" placeholder="">
+                <button type="submit" class=" btn btn-primary mx-1">Search</button>
+                <button type="submit" class=" btn btn-primary mx-1" name="all" value="all" >All Ads</button>
+            </form>
+            <form class="col-6 d-flex justify-content-center" method="post" action="<c:url value="/ads"/>">
+                <label for="cat" class="h2 mx-1 text-end">Category:</label>
+                <select name="cat" id="cat" class="mx-1 rounded border border-0">
                     <option value="0"></option>
                     <option value="1">For Sale</option>
                     <option value="2">For Trade</option>
@@ -30,9 +32,9 @@
                     <option value="7">Community Events</option>
                     <option value="8">Housing</option>
                 </select>
-                <button type="submit" class="col-1 btn btn-primary">Submit</button>
-            </div>
-        </form>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
 <%--        <form class="form-inline" method="post" action="<c:url value="/ads"/>">--%>
 <%--            <label for="cat">Category</label>--%>
 <%--            <select name="cat" id="cat">--%>
