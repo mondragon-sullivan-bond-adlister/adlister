@@ -21,32 +21,23 @@
     <c:otherwise>
 
         <div class="container">
-        <div class="row my-5">
-        <c:forEach items="${userAds}" var="ad">
-            <c:if test="${ad.getUserId() eq user.id}">
-
-
-                <div class="col-4">
-                    <div class="card mb-3">
-                        <div class="card-body mb-3">
-                            <h5 class="card-title">${ad.title}</h5>
-                                <%--              <p class="card-text">${ad.description}</p>--%>
-                            <div class="d-flex justify-content-center align-items-center">
-                                <button class="card-button btn btn-primary col-6 p-1"><a
-                                        href="<c:url value='/edit-ads?id='/><c:out value='${ad.id}'/>"
-                                        class="card-link"></a>Edit
-                                </button>
-                                <form action="/delete-ad" method="post" class="col-6 my-auto card-button p-1">
-                                    <input type="hidden" name="id" value="${ad.id}">
-                                    <button type="button" class="btn btn-primary"
-                                            onclick="deleteAlert(${ad.id}); return false">Delete
-                                    </button>
+            <div class="row d-flex justify-content-evenly my-5">
+            <c:forEach items="${userAds}" var="ad">
+                 <c:if test="${ad.getUserId() eq user.id}">
+                    <div class="card text-center bg-secondary bg-gradient bg-opacity-50" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title text-dark">${ad.title}</h5>
+                            <p class="card-text text-dark">${ad.description}</p>
+                            <div class="d-flex flex-row justify-content-evenly">
+                                <form action="<c:url value='/edit-ads'/>" method="get">
+                                    <button class="card-link btn btn-secondary" name="id" value="${ad.id}">Edit</button>
+                                </form>
+                                <form action="<c:url value='/delete-ad'/>" method="post">
+                                    <button type="button" class="card-link btn btn-secondary" name="id" value="${ad.id}" onclick="deleteAlert(${ad.id}); return false">Delete</button>
                                 </form>
                             </div>
                         </div>
                     </div>
-                </div>
-
             </c:if>
         </c:forEach>
         </div>
