@@ -5,6 +5,7 @@
     <jsp:include page="partials/head.jsp">
         <jsp:param name="title" value="Register For Our Site!" />
     </jsp:include>
+    <link rel="stylesheet" type="text/css" href="css/register.css">
 </head>
 <body>
     <jsp:include page="partials/navbar.jsp" />
@@ -24,7 +25,7 @@
                 <label for="password">Password</label>
                 <input id="password" name="password" class="form-control" type="password">
             </div>
-            <div class="form-group">
+            <div class="form-group last">
                 <label for="confirm_password">Confirm Password</label>
                 <input id="confirm_password" name="confirm_password" class="form-control" type="password">
             </div>

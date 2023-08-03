@@ -9,7 +9,20 @@
             background-color: #161A22;
         }
         h1, label{
+            color: #7090A4;
+        }
+        input.btn.btn-block.btn-primary {
+            background-color: #7090A4;
             color: white;
+            border-color: transparent;
+        }
+        input.btn.btn-primary:hover {
+            background-color: #161A22;
+            color: white;
+            border-color: #7090A4;
+        }
+        div.form-group.Des1 {
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -22,7 +35,7 @@
                 <label for="title">Title</label>
                 <input id="title" name="title" class="form-control" type="text">
             </div>
-            <div class="form-group">
+            <div class="form-group Des1">
                 <label for="description">Description</label>
                 <textarea id="description" name="description" class="form-control" type="text"></textarea>
             </div>

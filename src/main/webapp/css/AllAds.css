@@ -7,9 +7,6 @@ h1 {
 a.mi {
     color: #7090A4;
 }
-.btn {
-    background: #7090A4;
-}
 img.card-img-top {
     text-align: center;
 }
@@ -18,6 +15,16 @@ img.card-img-top {
 }
 .form-control {
     margin-bottom: 10px;
+}
+button.btn.btn-primary {
+    background-color: #7090A4;
+    color: white;
+    border-color: transparent;
+}
+button.btn.btn-primary:hover {
+    background-color: #161A22;
+    color: white;
+    border-color: #7090A4;
 }
 
 
