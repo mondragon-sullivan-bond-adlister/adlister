@@ -39,15 +39,22 @@
 <jsp:include page="partials/navbar.jsp"/>
 <c:choose>
     <c:when test="${empty userAds}">
-        <h3>No ads found for this user.</h3>
+        <div class="container">
+            <div class="row d-flex justify-content-center text-center">
+                <h3 class="text-light m-5">No ads found for this user.</h3>
+                <a class="btn btn-secondary w-75 m-5" href="<c:url value='/ads/create'/>">Create an ad</a>
+            </div>
+        </div>
+
     </c:when>
     <c:otherwise>
 
         <div class="container">
             <div class="row d-flex justify-content-evenly my-5">
-            <c:forEach items="${userAds}" var="ad">
+                <a class="btn btn-secondary w-75 m-5 col-12" href="<c:url value='/ads/create'/>">Create an ad</a>
+                <c:forEach items="${userAds}" var="ad">
                  <c:if test="${ad.getUserId() eq user.id}">
-                    <div class="card text-center bg-secondary bg-gradient bg-opacity-50" style="width: 18rem;">
+                    <div class="card text-center bg-secondary bg-gradient bg-opacity-50 m-3" style="width: 18rem;">
                         <div class="card-body">
                             <h5 class="card-title text-dark">${ad.title}</h5>
                             <p class="card-text text-dark">${ad.description}</p>

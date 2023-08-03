@@ -69,12 +69,12 @@
         </div>
     </c:if>
     <div class="row">
-    <c:forEach var="ad" items="${ads}">
+    <c:forEach var="ad" items="${ads}" varStatus="status">
         <div class="col-sm-6 col-md-4 col-lg-3">
             <div class="card" >
                 <img src="https://picsum.photos/id/<%= (int) (Math.random() * 100) %>/150/200" class="card-img-top mx-auto d-block" alt="...">
                 <div class="card-body">
-                    <h4>${ad.title}</h4>
+                    <h4>${ads.get(ads.size() - 1 - status.index).title}</h4>
                 </div>
                 <div class="card-body">
                     <a class="mi" href="/ad?${ad.id}">More Info</a>
