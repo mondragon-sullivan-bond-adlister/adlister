@@ -77,7 +77,7 @@
                     <h4>${ads.get(ads.size() - 1 - status.index).title}</h4>
                 </div>
                 <div class="card-body">
-                    <a class="mi" href="/ad?${ad.id}">More Info</a>
+                    <a class="mi" href="/ad?${ads.get(ads.size() - 1 - status.index).id}">More Info</a>
                 </div>
             </div>
 
