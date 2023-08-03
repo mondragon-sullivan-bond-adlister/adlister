@@ -11,28 +11,43 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <div class="container">
-    <h1>Here Are all the ads!</h1>
-    <div class="container">
+    <h1 class="my-3">Here Are all the ads!</h1>
+    <div class="container my-3">
         <form class="form-inline" method="post" action="<c:url value="/ads"/>">
-            <input type="text" name="search" class="form-control" placeholder="">
-            <button type="submit" class="btn btn-primary">Search</button>
-            <button type="submit" class="btn btn-primary" name="all" value="all" >All Ads</button>
+            <div class="row d-flex justify-content-center">
+                <input type="text" name="search" class="col-2 rounded mx-1 border border-0" placeholder="">
+                <button type="submit" class="col-1 btn btn-primary mx-1">Search</button>
+                <button type="submit" class="col-1 btn btn-primary mx-1" name="all" value="all" >All Ads</button>
+                <label for="cat" class="h2 col-2 mx-1 text-end">Category:</label>
+                <select name="cat" id="cat" class="col-2 mx-1 rounded border border-0">
+                    <option value="0"></option>
+                    <option value="1">For Sale</option>
+                    <option value="2">For Trade</option>
+                    <option value="3">For Free</option>
+                    <option value="4">Job Post</option>
+                    <option value="5">Job Search</option>
+                    <option value="6">Services</option>
+                    <option value="7">Community Events</option>
+                    <option value="8">Housing</option>
+                </select>
+                <button type="submit" class="col-1 btn btn-primary">Submit</button>
+            </div>
         </form>
-        <form class="form-inline" method="post" action="<c:url value="/ads"/>">
-            <label for="cat">Category</label>
-            <select name="cat" id="cat">
-                <option value="0"></option>
-                <option value="1">For Sale</option>
-                <option value="2">For Trade</option>
-                <option value="3">For Free</option>
-                <option value="4">Job Post</option>
-                <option value="5">Job Search</option>
-                <option value="6">Services</option>
-                <option value="7">Community Events</option>
-                <option value="8">Housing</option>
-            </select>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+<%--        <form class="form-inline" method="post" action="<c:url value="/ads"/>">--%>
+<%--            <label for="cat">Category</label>--%>
+<%--            <select name="cat" id="cat">--%>
+<%--                <option value="0"></option>--%>
+<%--                <option value="1">For Sale</option>--%>
+<%--                <option value="2">For Trade</option>--%>
+<%--                <option value="3">For Free</option>--%>
+<%--                <option value="4">Job Post</option>--%>
+<%--                <option value="5">Job Search</option>--%>
+<%--                <option value="6">Services</option>--%>
+<%--                <option value="7">Community Events</option>--%>
+<%--                <option value="8">Housing</option>--%>
+<%--            </select>--%>
+<%--            <button type="submit" class="btn btn-primary">Submit</button>--%>
+<%--        </form>--%>
     </div>
     <c:if test="${not empty Error}">
         <div>
@@ -43,7 +58,7 @@
     <c:forEach var="ad" items="${ads}">
         <div class="col-sm-6 col-md-4 col-lg-3">
             <div class="card" >
-                <img src="https://picsum.photos/200/300" class="card-img-top mx-auto d-block" alt="...">
+                <img src="https://picsum.photos/id/<%= (int) (Math.random() * 100) %>/150/200" class="card-img-top mx-auto d-block" alt="...">
                 <div class="card-body">
                     <h4>${ad.title}</h4>
                 </div>

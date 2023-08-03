@@ -27,11 +27,11 @@
                 <label for="password">Password</label>
                 <input id="password" name="password" class="form-control" type="password">
             </div>
-            <input type="submit" class="btn btn-primary btn-block" value="Log In">
+            <input type="submit" class="btn btn-primary btn-block w-100" value="Log In">
             <p>Don't have an account?</p>
         </form>
         <form method="GET" action="<c:url value="/register"/>" >
-            <input class="btn btn-primary btn-block" value="Register Here" type="submit"/>
+            <input class="btn btn-primary btn-block w-100" value="Register Here" type="submit"/>
         </form>
     </div>
     <script>

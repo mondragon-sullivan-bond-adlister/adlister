@@ -17,7 +17,7 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container">
         <h1>Create a new Ad</h1>
-        <form action="/ads/create" method="post">
+        <form action="/ads/create" method="post" >
             <div class="form-group">
                 <label for="title">Title</label>
                 <input id="title" name="title" class="form-control" type="text">
@@ -26,6 +26,7 @@
                 <label for="description">Description</label>
                 <textarea id="description" name="description" class="form-control" type="text"></textarea>
             </div>
+            <h5 class="mt-2 text-light">Category</h5>
             <input type="checkbox" id="cat1" name="cat1" value="1">
             <label for="cat1">For Sale | </label>
             <input type="checkbox" id="cat2" name="cat2" value="2">
@@ -42,7 +43,10 @@
             <label for="cat7">Community Events | </label>
             <input type="checkbox" id="cat8" name="cat8" value="8">
             <label for="cat8">Housing | </label>
-            <input type="submit" class="btn btn-block btn-primary">
+            <div class="row d-flex justify-content-center m-5">
+                <input type="submit" class="btn btn-block btn-primary w-50">
+            </div>
+
         </form>
     </div>
     <jsp:include page="/WEB-INF/partials/script.jsp"/>
